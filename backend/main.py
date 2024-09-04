@@ -1,7 +1,7 @@
-from flask import Flask
+from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 import os
-from flask import request
+# from flask import request
 
 app = Flask(__name__)
 
@@ -10,7 +10,7 @@ db_uri = os.environ.get('DATABASE_URI')
 app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:postgres@"+db_uri+"/postgres"
 
 db = SQLAlchemy(app)
-db.init_app(app)
+#db.init_app(app)
 
 class Text(db.Model):
     id = db.Column(db.Integer, primary_key=True)
